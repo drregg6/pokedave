@@ -4,7 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { fetchUsers } from '../../actions/user';
+import { fetchUsers } from '../../store/actions/user';
 
 const Users = ({
   fetchUsers,

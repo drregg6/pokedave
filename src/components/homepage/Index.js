@@ -3,8 +3,8 @@ import React from 'react';
 
 const Index = () => {
   return (
-    <div>
-      <h1>Welcome to the Homepage</h1>
+    <div className="bg-green-600">
+      <h1 className="text-2xl font-bold text-white">Welcome to the Homepage</h1>
     </div>
   )
 }
