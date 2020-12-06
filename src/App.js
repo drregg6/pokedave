@@ -1,3 +1,13 @@
+/*
+
+Click pokemon name
+Get module of the Pokemon
+Giving information about each pokemon
+
+Will require new call
+
+*/
+
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -10,6 +20,7 @@ import Footer from './components/layout/Footer';
 
 import Index from './components/homepage/Index';
 import Users from './components/users/Users';
+import Pokemon from './components/pokemon/Pokemon';
 
 function App() {
   return (
@@ -20,6 +31,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Index} />
             <Route exact path='/users' component={Users} />
+            <Route exact path='/pokemon/:name' component={Pokemon} />
           </Switch>
         </div>
         <Footer />

@@ -2,24 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { fetchPokemonByType } from '../../store/actions/pokemon';
+import {
+  fetchPokemonByType,
+} from '../../store/actions/pokemon';
 
 import Searchbar from '../search/Searchbar';
+import PokemonCard from '../pokemonCard/PokemonCard';
 
 const Index = ({
   fetchPokemonByType,
-  pokemon: { pokemon, isLoading }
+  pokemon: { pokemonList, isLoading }
 }) => {
   return (
     <div className="container mx-auto py-5">
       <Searchbar
         fetchPokemonByType={fetchPokemonByType}
       />
-      <h1 className="text-2xl font-bold">Welcome to the Homepage</h1>
       {
-        (pokemon && isLoading === false) && (
-          pokemon.map(pokemon => {
-            return <p>{pokemon.pokemon.name}</p>
+        (pokemonList && isLoading === false) && (
+          pokemonList.map((pokemon, idx) => {
+            return (
+              <PokemonCard
+                key={idx}
+                pokemonChild={pokemon}
+              />
+            )
           })
         )
       }
@@ -38,5 +45,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchPokemonByType }
+  {
+    fetchPokemonByType
+  }
 )(Index);
